@@ -4,33 +4,35 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Image;
+use App\Models\Alias;
+use App\Models\Status;
+
 
 class Person extends Model
 {
     use HasFactory;
 
 
-    public function Person()
+    public function aliases()
     {
-        return $this->belongsTo
-        (
-        Image::class,
-        Status::class,
-        'id',
-        'id',
-        'id',
-        'id',
-        );
-
+        return $this->hasMany(Alias::class);   
     }
 
-    public function PersonHas() 
+    public function image() 
     {
-        return $this->belongsTo(Alias::class, 'id');
+        return $this->belongsTo(Image::class);
+    }
+
+    public function status() 
+    {
+        return $this->belongsTo(Status::class);
     }
 
   
 }
 
 
+// Person has many Aliases
 // Person belongs to Image
+// Person belongs to Status

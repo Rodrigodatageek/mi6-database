@@ -4,19 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Person;
 class Alias extends Model
 {
     use HasFactory;
 
 
-    public function Alias() 
+    public function person() 
     {
-        return $this->belongsTo(Person::class, 'id');
+        return $this->belongsTo(Person::class);
     }
 
 
 }
 
 
-// Person has many Aliases
+// Alias belongs to Person

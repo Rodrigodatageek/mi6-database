@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Person;
 
 class Image extends Model
 {
     use HasFactory;
 
 
-    public function Image() 
+    public function person() 
     {
-        return $this->hasone(Person::class, 'id');
+        return $this->hasone(Person::class);
     }
 }
+
+
+// Image has one Person
